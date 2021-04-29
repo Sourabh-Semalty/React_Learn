@@ -1,5 +1,7 @@
 import React from 'react'
 
+//CSS
+import './App.css'
 // stateless functional component
 // *  always return JSX
 // function App()  {
@@ -48,15 +50,38 @@ import React from 'react'
 
 const App = () => {
   return (
-    <div>
-      <Fruits />
-      <Description />
-    </div>
+    <section className='Fruit-box'>
+      <FruitBox />
+      <FruitBox />
+      <FruitBox />
+      <FruitBox />
+      <FruitBox />
+      <FruitBox />
+    </section>
   )
 }
+const FruitBox = () => {
+  return (
+    <article className="Fruit">
+      <FruitImg />
+      <FruitTitle />
+      <FruitDesc />
+      <FruitQualityTag/>
+    </article>
+  )
+}
+const FruitTitle = () => <h1>Mango</h1>
+const FruitImg = () => {
+  return (
+    <img
+      src='https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/322/322096/mangoes-chopped-and-fresh.jpg?w=1155&h=1541'
+      alt='Mango'
+    />
+  )
+}
+const FruitQualityTag = () => <span className='Fruit_Quality_Tag'>Quality</span>
 
-const Fruits = () => <h1>Mango</h1>
-const Description = () => {
+const FruitDesc = () => {
   return (
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
