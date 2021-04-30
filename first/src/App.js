@@ -46,49 +46,49 @@ import './App.css'
 //   )
 // }
 
+// * setup variable
+const firstFruit = {
+  title: 'Mango',
+  desc:
+    'A mango is a stone fruit produced from numerous species of tropical trees belonging to the flowering plant genus Mangifera, cultivated mostly for their edible fruit. Most of these species are found in nature as wild mangoes.',
+  img:
+    'https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/322/322096/mangoes-chopped-and-fresh.jpg?w=1155&h=1541/>',
+}
+
+const secondFruit = {
+  title: 'Guvava',
+  desc:
+    'Guavas are tropical trees originating in Central America. Their fruits are oval in shape with light green or yellow skin and contain edible seeds',
+  img:
+    'https://www.verywellfit.com/thmb/0_EP_eQ7oQGr_rXodjhjeBMYkvc=/1500x1000/filters:fill(FFDB5D,1)/guava_annotated-1085716a264e420da311e61d0b9129e8.jpg',
+}
 // ? Nested Components , React Tools
 
 const App = () => {
   return (
     <section className='Fruit-box'>
-      <FruitBox />
-      <FruitBox />
-      <FruitBox />
-      <FruitBox />
-      <FruitBox />
-      <FruitBox />
+      <FruitBox
+        title={firstFruit.title}
+        desc={firstFruit.desc}
+        img={firstFruit.img}
+      />
+      <FruitBox
+        title={secondFruit.title}
+        desc={secondFruit.desc}
+        img={secondFruit.img}
+      />
     </section>
   )
 }
-const FruitBox = () => {
+const FruitBox = (props) => {
   return (
-    <article className="Fruit">
-      <FruitImg />
-      <FruitTitle />
-      <FruitDesc />
-      <FruitQualityTag/>
+    <article className='Fruit'>
+      <img src={props.img} alt='' />
+      <h1>{props.title}</h1>
+      <span className='Fruit_Quality_Tag'>Quality</span>
+      <p> {props.desc}</p>
     </article>
   )
 }
-const FruitTitle = () => <h1>Mango</h1>
-const FruitImg = () => {
-  return (
-    <img
-      src='https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/322/322096/mangoes-chopped-and-fresh.jpg?w=1155&h=1541'
-      alt='Mango'
-    />
-  )
-}
-const FruitQualityTag = () => <span className='Fruit_Quality_Tag'>Quality</span>
 
-const FruitDesc = () => {
-  return (
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-      exercitationem perspiciatis est quasi, fugit voluptate suscipit, quam
-      itaque ab aut non incidunt magnam, temporibus dolorem possimus sunt
-      obcaecati quibusdam ullam!
-    </p>
-  )
-}
 export default App

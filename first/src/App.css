@@ -41,7 +41,7 @@ body {
 .Fruit-box img {
  width: 100%;
 height: 200px;
-object-fit: fill;
+object-fit: contain;
 }
 .Fruit_Quality_Tag {
   position: absolute;
@@ -55,6 +55,12 @@ object-fit: fill;
   display: block;
   font-weight: bold;
   color: #fff;
+}
+.Fruit_price {
+  display: block;
+  text-align: right;
+  color: #adab18;
+  font-weight: bold;
 }
 
 /* Animation part  */
