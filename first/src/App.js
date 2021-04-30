@@ -81,12 +81,13 @@ const App = () => {
   )
 }
 const FruitBox = (props) => {
-  return (
+  const {img,title,desc} = props;
+    return (
     <article className='Fruit'>
-      <img src={props.img} alt='' />
-      <h1>{props.title}</h1>
+      <img src={img} alt='' />
+      <h1>{title}</h1>
       <span className='Fruit_Quality_Tag'>Quality</span>
-      <p> {props.desc}</p>
+      <p> {desc}</p>
     </article>
   )
 }
