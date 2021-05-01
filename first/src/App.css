@@ -71,6 +71,7 @@ object-fit: contain;
 @media (max-width: 1200px) {
   .Fruit-box {
   grid-template-columns: repeat(3, 1fr);
+  align-items: flex-start;
   }
 }
 @media (max-width: 800px) {

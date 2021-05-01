@@ -47,48 +47,68 @@ import './App.css'
 // }
 
 // * setup variable
-const firstFruit = {
-  title: 'Mango',
-  desc:
-    'A mango is a stone fruit produced from numerous species of tropical trees belonging to the flowering plant genus Mangifera, cultivated mostly for their edible fruit. Most of these species are found in nature as wild mangoes.',
-  img:
-    'https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/322/322096/mangoes-chopped-and-fresh.jpg?w=1155&h=1541/>',
-}
 
-const secondFruit = {
-  title: 'Guvava',
-  desc:
-    'Guavas are tropical trees originating in Central America. Their fruits are oval in shape with light green or yellow skin and contain edible seeds',
-  img:
-    'https://www.verywellfit.com/thmb/0_EP_eQ7oQGr_rXodjhjeBMYkvc=/1500x1000/filters:fill(FFDB5D,1)/guava_annotated-1085716a264e420da311e61d0b9129e8.jpg',
-}
-// ? Nested Components , React Tools
+const Fruits = [
+  {
+    id: 1,
+    title: 'Mango',
+    desc:
+      'A mango is a stone fruit produced from numerous species of tropical trees belonging to the flowering plant genus Mangifera, cultivated mostly for their edible fruit. Most of these species are found in nature as wild mangoes.',
+    img:
+      'https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/322/322096/mangoes-chopped-and-fresh.jpg?w=1155&h=1541/>',
+  },
+  {
+    id: 2,
+    title: 'Guvava',
+    desc:
+      'Guavas are tropical trees originating in Central America. Their fruits are oval in shape with light green or yellow skin and contain edible seeds',
+    img:
+      'https://www.verywellfit.com/thmb/0_EP_eQ7oQGr_rXodjhjeBMYkvc=/1500x1000/filters:fill(FFDB5D,1)/guava_annotated-1085716a264e420da311e61d0b9129e8.jpg',
+  },
+]
 
+// const App = () => {
+//   return (
+//     <section className='Fruit-box'> 
+//       {Fruits.map((fruit,index) => {
+//         const {img ,title, author } = fruit;
+//         return <FruitBox key= {fruit.id} fruit={fruit}></FruitBox>
+//       })}
+//     </section>
+//   )
+// }
+
+// * spread operator
 const App = () => {
   return (
-    <section className='Fruit-box'>
-      <FruitBox
-        title={firstFruit.title}
-        desc={firstFruit.desc}
-        img={firstFruit.img}
-      />
-      <FruitBox
-        title={secondFruit.title}
-        desc={secondFruit.desc}
-        img={secondFruit.img}
-      />
+    <section className='Fruit-box'> 
+      {Fruits.map((fruit,index) => {
+        return <FruitBox key= {fruit.id} {...fruit}></FruitBox>
+      })}
     </section>
   )
 }
-const FruitBox = (props) => {
-  const {img,title,desc} = props;
-    return (
-    <article className='Fruit'>
+const FruitBox = ({ img, title, desc }) => {
+  // const { img, title, desc } = props
+//  * attribute , eventhandler
+// * onClick , onMourseOver 
+const clickHandler = (e) => {
+  console.log(e);
+  console.log(e.target);
+}
+const deleteItem = (title) => {
+}
+  return (
+    <article className='Fruit' onMouseOver={(e) => {
+      console.log(e.target);
+    }}>
       <img src={img} alt='' />
       <h1>{title}</h1>
       <span className='Fruit_Quality_Tag'>Quality</span>
       <p> {desc}</p>
-    </article>
+      <button type="button" onClick={clickHandler}>Buy</button>
+      <button type="button" onClick={() => deleteItem(title)}>Delete item</button>
+      </article>
   )
 }
 
